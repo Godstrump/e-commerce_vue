@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="splash-container">
+      <div class="splash">
+        <h1>Splendid Food</h1>
+      </div>
+    </div>
+
+    <main class="wrapper">
+
+      <h2>Recommended</h2>
+
+      <div class="recommended">
+
+        <ProductCard :inventory="inventory.slice(0,3)" :addToCart="addProdToCart" />
+
+      </div>
+
+    </main>
   </div>
 </template>
 
 <script>
+
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ProductCard from '@/components/ProductCardComponent.vue'
 
 export default {
   name: 'HomeView',
+  props: ['inventory', 'addProdToCart'],
   components: {
-    HelloWorld
+    ProductCard
   }
 }
 </script>
